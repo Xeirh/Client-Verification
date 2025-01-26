@@ -17,10 +17,6 @@ connect_event()
     {
         level waittill( "connected", player );
 
-        // bot filter, this function doesn't exist in single player
-        if( player istestclient() )
-            continue;
-
         // assign access, private match will still check and prioritize admin before host, if private and guid is wrong you will be given host access, if it's server, well... you get nothing
         self.access = level.private_match ? ( ( self is_admin() || self is_host() ) ? ( self is_admin() ? "Admin" : "Host" ) : undefined ) : ( self is_admin() ? "Admin" : undefined );
 
